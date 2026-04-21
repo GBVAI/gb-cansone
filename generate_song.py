@@ -16,10 +16,10 @@ import os
 import sys
 from pathlib import Path
 
-OPENROUTER_API_KEY = os.environ.get(
-    "OPENROUTER_API_KEY",
-    "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"
-)
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+if not OPENROUTER_API_KEY:
+    print("ERROR: Set OPENROUTER_API_KEY environment variable.")
+    sys.exit(1)
 MODEL = "google/lyria-3-pro-preview"
 OUTPUT_DIR = Path(__file__).parent / "output"
 
